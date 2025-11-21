@@ -5,7 +5,7 @@ def play_game():
         number = random.randint(1, 50)
         attempts = 0
         
-        print("\nI'm thinking of a number between 1 and 50!")
+        print("\nGuess the number between 1 and 50!")
         
         while True:
             try:
