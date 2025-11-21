@@ -1,31 +1,64 @@
 def smart_calculator():
-    print("Welcome to the Smart Calculator!")
+    print(" Welcome to the Advanced Smart Calculator!")
     
-    # Take user input for numbers
-    try:
-        num1 = float(input("Enter the first number: "))
-        num2 = float(input("Enter the second number: "))
-    except ValueError:
-        print("Invalid input! Please enter numeric values only.")
-        return
+    while True:
+        print("\nChoose an operation:")
+        print("1. Addition (+)")
+        print("2. Subtraction (-)")
+        print("3. Multiplication (*)")
+        print("4. Division (/)")
+        print("5. Modulus (%)")
+        print("6. Exponentiation (**)")
+        print("7. Floor Division (//)")
+        print("8. Exit")
+        
+        choice = input("Enter your choice (1-8): ")
+        
+        if choice == '8':
+            print("Thank you for using the Advanced Smart Calculator! 👋")
+            break
+        
+        if choice not in {'1','2','3','4','5','6','7'}:
+            print("Invalid choice! Please select a number between 1 and 8.")
+            continue
 
-    # Perform calculations
-    addition = num1 + num2
-    subtraction = num1 - num2
-    multiplication = num1 * num2
-    
-    # Handle division by zero
-    if num2 != 0:
-        division = num1 / num2
-    else:
-        division = "Undefined (division by zero is not allowed)"
+        try:
+            num1 = float(input("Enter the first number: "))
+            num2 = float(input("Enter the second number: "))
+        except ValueError:
+            print("Invalid input! Please enter numeric values only.")
+            continue
 
-    # Display results
-    print("\nResults:")
-    print(f"{num1} + {num2} = {addition}")
-    print(f"{num1} - {num2} = {subtraction}")
-    print(f"{num1} * {num2} = {multiplication}")
-    print(f"{num1} / {num2} = {division}")
+        if choice == '1':
+            result = num1 + num2
+            print(f"Result: {num1} + {num2} = {result}")
+        elif choice == '2':
+            result = num1 - num2
+            print(f"Result: {num1} - {num2} = {result}")
+        elif choice == '3':
+            result = num1 * num2
+            print(f"Result: {num1} * {num2} = {result}")
+        elif choice == '4':
+            if num2 != 0:
+                result = num1 / num2
+                print(f"Result: {num1} / {num2} = {result}")
+            else:
+                print("Error: Division by zero is not allowed!")
+        elif choice == '5':
+            if num2 != 0:
+                result = num1 % num2
+                print(f"Result: {num1} % {num2} = {result}")
+            else:
+                print("Error: Modulus by zero is not allowed!")
+        elif choice == '6':
+            result = num1 ** num2
+            print(f"Result: {num1} ** {num2} = {result}")
+        elif choice == '7':
+            if num2 != 0:
+                result = num1 // num2
+                print(f"Result: {num1} // {num2} = {result}")
+            else:
+                print("Error: Floor division by zero is not allowed!")
 
-# Call the function
+# Run the calculator
 smart_calculator()
